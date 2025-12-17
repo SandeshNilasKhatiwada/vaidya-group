@@ -13,3 +13,23 @@ model User {
   password  String
   createdAt DateTime @default(now())
 }
+
+model Car {
+  id                    Int      @id @default(autoincrement())
+  make_name             String
+  model_name            String
+  trim_name             String?
+  trim_description      String?
+  engine_type           String
+  engine_fuel_type      String?
+  engine_cylinders      Int?
+  engine_size           Float?
+  engine_horsepower_hp  Int?
+  engine_horsepower_rpm Int?
+  engine_drive_type     String?
+  body_type             String
+  body_doors            Int?
+  body_seats            Int?
+  created_at            DateTime @default(now())
+  updated_at            DateTime @updatedAt
+}
