@@ -4,7 +4,7 @@ const csv = require("csv-parser");
 
 const prisma = new PrismaClient();
 
-// Helper function to parse number from string
+// Helper to parse numbers from strings
 function parseNumber(value) {
   if (!value || value.toString().trim() === "") return null;
 
