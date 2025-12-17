@@ -7,10 +7,8 @@ const port = process.env.PORT || 3000;
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-// Sample route
-app.get("/api", (req, res) => {
-  res.send("Hello World!");
-});
+//for the routers
+app.use("/api", require("./routes/index.route"));
 
 // Start the server
 app.listen(port, () => {
