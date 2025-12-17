@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "805077d4-fb9c-4077-bd54-300c3b2c1ca3",
+		"name": "Vaidya-Group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40498369",
+		"_collection_link": "https://planetary-trinity-11736.postman.co/workspace/My-Workspace~7d60e85b-19d4-422f-8d8f-bb2d3bf4043c/collection/40498369-805077d4-fb9c-4077-bd54-300c3b2c1ca3?action=share&source=collection_link&creator=40498369"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "userLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"admin@example.com\",\n    \"password\":\"Admin@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "cretaeCar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \n  \"model_name\": \"Camry\",\n  \"trim_name\": \"XLE\",\n  \"trim_description\": \"Luxury trim with leather seats\",\n  \"engine_type\": \"Inline-4\",\n  \"engine_fuel_type\": \"Gasoline\",\n  \"engine_cylinders\": 4,\n  \"engine_size\": 2.5,\n  \"engine_horsepower_hp\": 203,\n  \"engine_horsepower_rpm\": 6600,\n  \"engine_drive_type\": \"Front-Wheel Drive\",\n  \"body_type\": \"Sedan\",\n  \"body_doors\": 4,\n  \"body_seats\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/car/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"car",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCars",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \n  \"model_name\": \"Camry\",\n  \"trim_name\": \"XLE\",\n  \"trim_description\": \"Luxury trim with leather seats\",\n  \"engine_type\": \"Inline-4\",\n  \"engine_fuel_type\": \"Gasoline\",\n  \"engine_cylinders\": 4,\n  \"engine_size\": 2.5,\n  \"engine_horsepower_hp\": 203,\n  \"engine_horsepower_rpm\": 6600,\n  \"engine_drive_type\": \"Front-Wheel Drive\",\n  \"body_type\": \"Sedan\",\n  \"body_doors\": 4,\n  \"body_seats\": 5\n}"
+						},
+						"url": {
+							"raw": "{{url}}/car/all?limit=10&page=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"car",
+								"all"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n            \"make_name\": \"Toyota1\",\n            \"model_name\": \"Camry\",\n            \"trim_name\": \"XLE\",\n            \"trim_description\": \"Luxury trim with leather seats\",\n            \"engine_type\": \"Inline-4\",\n            \"engine_fuel_type\": \"Gasoline\",\n            \"engine_cylinders\": 4,\n            \"engine_size\": 2.5,\n            \"engine_horsepower_hp\": 203,\n            \"engine_horsepower_rpm\": 6600,\n            \"engine_drive_type\": \"Front-Wheel Drive\",\n            \"body_type\": \"Sedan\",\n            \"body_doors\": 4,\n            \"body_seats\": 5,\n            \"created_at\": \"2025-12-17T05:38:50.278Z\",\n            \"updated_at\": \"2025-12-17T05:38:50.278Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/car/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"car",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCarById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n            \"make_name\": \"Toyota\",\n            \"model_name\": \"Camry\",\n            \"trim_name\": \"XLE\",\n            \"trim_description\": \"Luxury trim with leather seats\",\n            \"engine_type\": \"Inline-4\",\n            \"engine_fuel_type\": \"Gasoline\",\n            \"engine_cylinders\": 4,\n            \"engine_size\": 2.5,\n            \"engine_horsepower_hp\": 203,\n            \"engine_horsepower_rpm\": 6600,\n            \"engine_drive_type\": \"Front-Wheel Drive\",\n            \"body_type\": \"Sedan\",\n            \"body_doors\": 4,\n            \"body_seats\": 5,\n            \"created_at\": \"2025-12-17T05:38:50.278Z\",\n            \"updated_at\": \"2025-12-17T05:38:50.278Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/car/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"car",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n            \"make_name\": \"Toyota\",\n            \"model_name\": \"Camry\",\n            \"trim_name\": \"XLE\",\n            \"trim_description\": \"Luxury trim with leather seats\",\n            \"engine_type\": \"Inline-4\",\n            \"engine_fuel_type\": \"Gasoline\",\n            \"engine_cylinders\": 4,\n            \"engine_size\": 2.5,\n            \"engine_horsepower_hp\": 203,\n            \"engine_horsepower_rpm\": 6600,\n            \"engine_drive_type\": \"Front-Wheel Drive\",\n            \"body_type\": \"Sedan\",\n            \"body_doors\": 4,\n            \"body_seats\": 5,\n            \"created_at\": \"2025-12-17T05:38:50.278Z\",\n            \"updated_at\": \"2025-12-17T05:38:50.278Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/car/cars/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"car",
+								"cars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload-car",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csvFile",
+									"type": "file",
+									"src": "/Users/sandeshnilaskhatiwada/Downloads/CSV/CarsData-Backend.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/csv/import",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"csv",
+								"import"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
