@@ -1,0 +1,27 @@
+const jwt = require("jsonwebtoken");
+
+const authMiddleware = (req, res, next) => {
+  try {
+    // Check if Authorization header exists
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res
+        .status(401)
+        .json({ message: "Unauthorized: No token provided" });
+    }
+
+    // Extract token
+    const token = authHeader.split(" ")[1];
+
+    // Verify token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded; // attach user info to request
+
+    next(); // proceed to next middleware or route
+  } catch (err) {
+    console.error(err);
+    return res.status(401).json({ message: "Unauthorized: Invalid token" });
+  }
+};
+
+module.exports = authMiddleware;
